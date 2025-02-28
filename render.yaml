@@ -2,21 +2,7 @@ services:
   - type: web
     name: flutter-todo
     env: static
-    buildCommand: |
-      echo "Installing system dependencies..."
-      sudo apt-get update
-      sudo apt-get install -y curl unzip xz-utils zip libglu1-mesa
-      echo "Current directory: $(pwd)"
-      echo "Installing Flutter..."
-      git clone https://github.com/flutter/flutter.git -b stable
-      export PATH="$PATH:`pwd`/flutter/bin"
-      ./flutter/bin/flutter --version
-      ./flutter/bin/flutter config --no-analytics
-      ./flutter/bin/flutter doctor -v
-      ./flutter/bin/flutter precache
-      ./flutter/bin/flutter pub get
-      ./flutter/bin/flutter build web --release
-      echo "Build completed!"
+    buildCommand: ./build.sh
     staticPublishPath: build/web
     pullRequestPreviewsEnabled: true
     envVars:
