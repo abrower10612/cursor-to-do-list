@@ -3,6 +3,9 @@ services:
     name: flutter-todo
     env: static
     buildCommand: |
+      echo "Installing system dependencies..."
+      sudo apt-get update
+      sudo apt-get install -y curl unzip xz-utils zip libglu1-mesa
       echo "Current directory: $(pwd)"
       echo "Installing Flutter..."
       git clone https://github.com/flutter/flutter.git -b stable
