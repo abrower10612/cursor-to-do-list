@@ -15,10 +15,12 @@ services:
       echo "Verifying Flutter installation..."
       ./flutter/bin/flutter --version
       echo "Running Flutter commands..."
-      ./flutter/bin/flutter precache
-      ./flutter/bin/flutter pub get
-      ./flutter/bin/flutter build web --release
+      cd to_do_list
+      ../flutter/bin/flutter precache
+      ../flutter/bin/flutter pub get
+      ../flutter/bin/flutter build web --release
       echo "Build completed!"
+      cp -r build/web/* ../build/web/
     staticPublishPath: ./build/web
     pullRequestPreviewsEnabled: true
     envVars:
