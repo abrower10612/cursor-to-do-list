@@ -3,11 +3,19 @@ services:
     name: flutter-todo
     env: static
     buildCommand: |
-      git clone https://github.com/flutter/flutter.git
-      export PATH="$PATH:`pwd`/flutter/bin"
-      flutter precache
-      flutter pub get
-      flutter build web --release
+      echo "Current directory: $(pwd)"
+      echo "Installing Flutter..."
+      git clone https://github.com/flutter/flutter.git -b stable
+      echo "Setting PATH..."
+      export PATH="$PATH:$(pwd)/flutter/bin"
+      echo "PATH is now: $PATH"
+      echo "Verifying Flutter installation..."
+      ./flutter/bin/flutter --version
+      echo "Running Flutter commands..."
+      ./flutter/bin/flutter precache
+      ./flutter/bin/flutter pub get
+      ./flutter/bin/flutter build web --release
+      echo "Build completed!"
     staticPublishPath: ./build/web
     pullRequestPreviewsEnabled: true
     envVars:
