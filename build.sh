@@ -19,5 +19,5 @@ export PATH="$PATH:`pwd`/flutter/bin"
 # Verify Flutter installation
 flutter --version
 
-# Run Flutter web build
-flutter build web
+# Run Flutter web build with environment variables
+flutter build web --dart-define=SUPABASE_URL=$SUPABASE_URL --dart-define=SUPABASE_ANON_KEY=$SUPABASE_ANON_KEY
